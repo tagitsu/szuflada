@@ -6,16 +6,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>szuflada z włóczkami</title>
   <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
   <header class="header">
     <h1 class="header__page-title">Szuflada z włóczkami</h1>
   </header>
-  <main>
-    <div class="square add">
-      <button class="square btn add" type="button">+</button>
+  <main class="yarn-drawer">
+    <div class="square">
+      <button class="square btn add-yarn" type="button">+</button>
     </div>
+
+<!--<script id="yarn-form" type="text/x-handlebars-template">
+       add yarn - form -->
+      <form id="yarn-form">
+        <label for="brand">Marka: 
+          <select id="brand">
+            <option value="none">no-name</option>
+            <option value="drops">drops</option>
+            <option value="gabo">gabo wool</option>
+            <option value="kokonki">kokonki</option>
+          </select>
+        </label>
+        <label for="name">Nazwa:
+          <input type="text" id="name">
+        </label>
+        <label for="color">Kolor:
+          <input type="text" id="color">
+        </label>
+        <label for="color-family">Rodzina kolorów:
+          <select id="color-family">
+            <option value="white">biel</option>
+            <option value="gray">szary</option>
+            <option value="pink">róż</option>
+        </label>
+        <label for="skeins">Ilość motków:
+          <input type="number" id="skeins">
+        </label>
+        <label for="group">Grupa włóczek:
+          <select id="group">
+            <option value="a">A - sport</option>
+            <option value="b">B - DK/worsted</option>
+            <option value="c">C - aran/worsted</option>
+          </select>
+        </label>
+        <button type="submit" class="btn add-yarn">Dodaj włóczkę do szuflady</button>
+      </form>
+<!--</script>    -->    
+
+    <script id="yarn-box" class="square" type="text/x-handlebars-template">
+      <!-- yarn box -->
+
+    </script>
+
   </main>
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
 </body>
 </html>
