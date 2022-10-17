@@ -31,8 +31,24 @@
   // chcę zabrać dane z formularza i stworzyć z nich nową włóczkę do szuflady
 
   // co potrzebuję
-  // złap dane z formularza
+  // dane z formularza
   const form = document.querySelector(select.templateOf.yarnForm);
-  console.log('form', form);
+  const formInputs = form.querySelectorAll(select.all.formInputs);
+  const addBtn = form.querySelector(select.button.addYarn);
+  addBtn.addEventListener('click', getValues);
 
-};
+  let formValues = '';
+  let formInputValue = '';
+
+  function getValues() {
+    for (let formInput of formInputs) {
+      formInputValue = formInput.value;
+      console.log(formInputValue);
+    }
+    return formValues = formValues + formInputValue;
+    console.log(formValues);
+  }
+
+  
+}
+

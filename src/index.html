@@ -17,10 +17,14 @@
       <button class="square btn add-yarn" type="button">+</button>
     </div>
 
+    <div class="square">
+      
+    </div>
+
 <!--<script id="yarn-form" type="text/x-handlebars-template">
        add yarn - form -->
-      <form id="yarn-form">
-        <label for="brand">Marka: 
+      <form id="yarn-form" class="form">
+        <label>Marka:
           <select id="brand">
             <option value="none">no-name</option>
             <option value="drops">drops</option>
@@ -28,22 +32,23 @@
             <option value="kokonki">kokonki</option>
           </select>
         </label>
-        <label for="name">Nazwa:
+        <label>Nazwa:
           <input type="text" id="name">
         </label>
-        <label for="color">Kolor:
+        <label>Kolor:
           <input type="text" id="color">
         </label>
-        <label for="color-family">Rodzina kolorów:
+        <label>Rodzina kolorów:
           <select id="color-family">
             <option value="white">biel</option>
             <option value="gray">szary</option>
             <option value="pink">róż</option>
+          </select>
         </label>
-        <label for="skeins">Ilość motków:
+        <label>Ilość motków:
           <input type="number" id="skeins">
         </label>
-        <label for="group">Grupa włóczek:
+        <label>Grupa włóczek:
           <select id="group">
             <option value="a">A - sport</option>
             <option value="b">B - DK/worsted</option>
@@ -52,14 +57,14 @@
         </label>
         <button type="submit" class="btn add-yarn">Dodaj włóczkę do szuflady</button>
       </form>
-<!--</script>    -->    
+<!--</script>    -->
 
     <script id="yarn-box" class="square" type="text/x-handlebars-template">
       <!-- yarn box -->
-
     </script>
 
   </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
