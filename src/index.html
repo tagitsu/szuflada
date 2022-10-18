@@ -17,50 +17,13 @@
       <button class="square btn add-yarn" type="button">+</button>
     </div>
 
-    <div class="square">
-      
-    </div>
-
-<!--<script id="yarn-form" type="text/x-handlebars-template">
-       add yarn - form -->
-      <form id="yarn-form" class="form">
-        <label>Marka:
-          <select id="brand">
-            <option value="none">no-name</option>
-            <option value="drops">drops</option>
-            <option value="gabo">gabo wool</option>
-            <option value="kokonki">kokonki</option>
-          </select>
-        </label>
-        <label>Nazwa:
-          <input type="text" id="name">
-        </label>
-        <label>Kolor:
-          <input type="text" id="color">
-        </label>
-        <label>Rodzina kolorów:
-          <select id="color-family">
-            <option value="white">biel</option>
-            <option value="gray">szary</option>
-            <option value="pink">róż</option>
-          </select>
-        </label>
-        <label>Ilość motków:
-          <input type="number" id="skeins">
-        </label>
-        <label>Grupa włóczek:
-          <select id="group">
-            <option value="a">A - sport</option>
-            <option value="b">B - DK/worsted</option>
-            <option value="c">C - aran/worsted</option>
-          </select>
-        </label>
-        <button type="submit" class="btn add-yarn">Dodaj włóczkę do szuflady</button>
-      </form>
-<!--</script>    -->
-
-    <script id="yarn-box" class="square" type="text/x-handlebars-template">
+    <script id="yarn-box" type="text/x-handlebars-template">
       <!-- yarn box -->
+      <div class="square">
+        <p>{{brand}}</p>
+        <p>{{name}}</p>
+      </div>
+      
     </script>
 
   </main>
