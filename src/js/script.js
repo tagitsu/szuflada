@@ -11,6 +11,7 @@
     },
     buttons: {
       addBtn: '.add-yarn',
+      saveBtn: '.save-yarn',
     },
     elements: {
       addYarnForm: '.form__add-yarn',
@@ -27,8 +28,7 @@
   const addBtn = document.querySelector(select.buttons.addBtn);
   const formBox = document.querySelector(select.container.FormBox);
   const addYarnForm = document.querySelector(select.elements.addYarnForm);
-  console.log('formularz dodawania włóczki', addYarnForm);
-
+  const saveBtn = document.querySelector(select.buttons.saveBtn);
 
   // dodawnie włóczki
   // obsługa przycisku dodającego włóczkę
@@ -42,7 +42,7 @@
   }
 
   // obsługa formularza
-  
+  saveBtn.addEventListener('click', )
 
   const yarn = {
     brand: 'drops',
