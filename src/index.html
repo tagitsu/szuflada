@@ -13,15 +13,35 @@
     <h1 class="header__page-title">Szuflada z włóczkami</h1>
   </header>
   <main class="yarn-drawer">
-    <div class="square">
-      <button class="square btn add-yarn" type="button">+</button>
+    <div class="square form">
+      <button class="btn square add-yarn active" type="button">+</button>
+      <form class="form__add-yarn hide">
+        <label>Marka włóczki:
+          <input type="text">
+        </label>
+        <label>Nazwa włóczki:
+          <input type="text">
+        </label>
+        <button type="submit">Dodaj nową włóczkę do szuflady</button>
+      </form>
     </div>
+
+    <script id="yarn-form" type="text/x-handlebars-template">
+      <!-- yarn form -->
+      <div class="form">
+        
+      </div>
+      
+    </script>
 
     <script id="yarn-box" type="text/x-handlebars-template">
       <!-- yarn box -->
       <div class="square">
-        <p>{{brand}}</p>
-        <p>{{name}}</p>
+        <ul>
+          <li>{{brand}}</li>
+          <li>{{name}}</li>
+        </ul>
+        
       </div>
       
     </script>
