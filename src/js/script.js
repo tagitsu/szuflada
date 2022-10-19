@@ -20,64 +20,105 @@
       addYarnForm: '.form__add-yarn',
     }
   };
+
   const classNames = {
     visibleElement: 'active',
     hiddenElement: 'hide',
   };
 
-  const tplYarn = Handlebars.compile(document.querySelector(select.templateOf.yarnBox).innerHTML);
-  
-  const drawer = document.querySelector(select.container.yarnDrawer);
-  const addBtn = document.querySelector(select.buttons.addBtn);
-  const formBox = document.querySelector(select.container.FormBox);
-  const addYarnForm = document.querySelector(select.elements.addYarnForm);
-  const saveBtn = document.querySelector(select.buttons.saveBtn);
-  const formInputs = addYarnForm.querySelectorAll(select.all.formInputs);
+  const templates = {
+    newYarnTemp: Handlebars.compile(document.querySelector(select.templateOf.yarnBox).innerHTML),
+  };
 
+  const elements = {
+    drawer: document.querySelector(select.container.yarnDrawer),
+    addBtn: document.querySelector(select.buttons.addBtn),
+    formBox: document.querySelector(select.container.FormBox),
+    addYarnForm: document.querySelector(select.elements.addYarnForm),
+    saveBtn: document.querySelector(select.buttons.saveBtn),
+    formInputs: document.querySelectorAll(select.all.formInputs),
+  };
+  
+  console.log(elements.formBox, yarnFormValues); // żeby nie wywalało błędu
   // dodawnie włóczki
   // obsługa przycisku dodającego włóczkę
-  addBtn.addEventListener('click', displayForm);
+  elements.addBtn.addEventListener('click', displayForm);
 
   function displayForm() {
-    formBox.appendChild(addYarnForm);
-    addYarnForm.classList.remove(classNames.hiddenElement);
-    addBtn.classList.remove(classNames.visibleElement);
-    addBtn.classList.add(classNames.hiddenElement);
+    elements.formBox.appendChild(elements.addYarnForm);
+    elements.addYarnForm.classList.remove(classNames.hiddenElement);
+    elements.addBtn.classList.remove(classNames.visibleElement);
+    elements.addBtn.classList.add(classNames.hiddenElement);
   }
 
   // obsługa formularza
-  saveBtn.addEventListener('click', putYarnInDrawer);
+  elements.saveBtn.addEventListener('click', createNewBox);
+  let lp, brand, name;
+  const yarn = {};
+  let newYarn = {};
+  let yarnFormValues = '';
+  let yarnArr = [];
 
-  function putYarnInDrawer() {
-    console.log(formInputs);
 
-    console.log('nowa włóczka wskoczyła do szuflady');
-    let yarnArr = [];
-    // pobieram dane z inputów
-    for (let formInput of formInputs) {
-      yarnArr.push(formInput.value);
-    }
-    // zapisuje je do tablicy
-    console.log(yarnArr);
 
-    // dodaje nową włóczkę do obiektu z włóczkami?
-    // wyciągam dane do tplYarn
-    // tworzę nowy kwadrat
-    // dodaję nowy kwadrat na końcu kolejki
-    // zmieniam klasę formularza z active na hide
-    // zmieniam klasę przycisku addBtn z hide na active
-
+  function createNewBox() {
+    console.log('przycisk zatwierdzający formularz');
+    newYarn = new Yarn(lp, brand, name);
+    console.log('to jest nowa włóczka', newYarn);
+    yarn.newYarn;
+    console.log('to jest zbiór włóczek', yarn);
   }
 
-  const yarn = {
-    brand: 'drops',
-    name: 'alpaca',
-  };
 
-  let newYarn = tplYarn(yarn);
+  class Yarn {
+    constructor(lp, brand, name) {
+      // const thisYarn = this;
+      this.lp = lp;
+      this.brand = brand;
+      this.name = name;
 
-  const square = drawer.insertAdjacentHTML('beforeend', newYarn);
+      this.getSkeinsParams();
+      this.createNewYarn();
+    }
+
+    getSkeinsParams() {
 
   
-}
+      // pobieram dane z inputów
+      for (let formInput of elements.formInputs) {
+        yarnArr.push(formInput.value);
+      }
+      // zapisuje je do tablicy
+      const brand = yarnArr[0];
+      const name = yarnArr[1];
+      console.log(brand, name);
+    }
 
+    createNewYarn(brand, name) {
+      // tworzę obiekt nowej włóczki 
+      console.log(yarn);
+      yarn.brand = brand;
+      yarn.name = name;
+      // numer porządkowy włóczki
+      
+      if (!(yarn.hasOwnProperty(lp))) {
+        yarn.lp = 1;
+      } else {
+        yarn.lp++;
+      }
+
+    }
+  }
+
+  
+  // dodaje nową włóczkę (instancję) do obiektu z włóczkami?
+  const yarnNo1 = new Yarn(1, 'drops', 'wish');
+  console.log('yarn no 1', yarnNo1); // obiekt z trzema właściwościami o kluczach no, bran i name
+  // tworzę kod HTML nowego kwadrata dla włóczki
+  const codeHTML = templates.newYarnTemp(yarnNo1);
+  // tworzę nowy kwadrat
+  // dodaję nowy kwadrat na końcu kolejki
+  elements.drawer.insertAdjacentHTML('beforeend', codeHTML);
+  // zmieniam klasę formularza z active na hide
+  // zmieniam klasę przycisku addBtn z hide na active
+}
