@@ -68,7 +68,6 @@
   } // KONIEC KLASY YARN
 
   function getSkeinsParams() {
-
   
     // pobieram dane z inputów
     for (let formInput of elements.formInputs) {
@@ -89,23 +88,20 @@
 
   function addNewYarn(lp, brand, name) {
     yarnStock.newYarn = new Yarn(lp, brand, name);
-    console.log('to jest nowa włóczka', yarnStock.newYarn);
-    console.log('to jest zbiór włóczek', yarnStock);
 
     makeNewYarnBox(yarnStock.newYarn);
   }
 
   function makeNewYarnBox(skein) {
     const yarnBoxCode = templates.newYarnTemp(skein);
-    console.log(yarnBoxCode);
     // tworzę nowy kwadrat
     // dodaję nowy kwadrat na końcu kolejki
     elements.drawer.insertAdjacentHTML('beforeend', yarnBoxCode);
-    // zmieniam klasę formularza z active na hide
+    // zmieniam klasę formularza
     elements.addYarnForm.classList.remove(classNames.visibleElement);
     elements.addYarnForm.classList.add(classNames.hiddenElement);
 
-    // zmieniam klasę przycisku addBtn z hide na active
+    // zmieniam klasę przycisku addBtn
     elements.addBtn.classList.remove(classNames.hiddenElement);
   }
 }
