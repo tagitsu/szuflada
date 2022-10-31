@@ -1,7 +1,3 @@
-const dataSource = {};
+export const yarnStock = {};
 
-dataSource.yarn = {
-  brand: 'Drops',
-  name: 'Alpaca',
-  
-};
+console.log('data.j - stock', yarnStock);

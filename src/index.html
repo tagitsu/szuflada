@@ -4,42 +4,83 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>szuflada z włóczkami</title>
+  <title>szuflada</title>
   <link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
+
   <header class="header">
-    <h1 class="header__page-title">Szuflada z włóczkami</h1>
-  </header>
-  <main class="yarn-drawer">
-    <div class="square form">
-      <button class="btn square add-yarn" type="button">+</button>
-      <form class="form__add-yarn hide">
-        <label>Marka włóczki:
-          <input type="text">
-        </label>
-        <label>Nazwa włóczki:
-          <input type="text">
-        </label>
-        <button class="btn save-yarn" type="button">Dodaj nową włóczkę do szuflady</button>
-      </form>
-    </div>
-
-
-    <script id="yarn-box" type="text/x-handlebars-template">
-      <!-- yarn box -->
-      <div class="square">
-        <ul>
-          <li>{{lp}}</li>
-          <li>{{brand}}</li>
-          <li>{{name}}</li>
-        </ul>
+    <h1 class="header__page-title">szuflada</h1>
+    <nav class="menu">
+      <div class="menu__btn">
+        <a href="#yarn">włóczki</a>
       </div>
-    </script>
+      <div class="menu__btn">
+        <a href="#projects">projekty</a>
+      </div>
+      <div class="menu__btn">
+        <a href="#tools">przydasie</a>
+      </div>
+      <div class="menu__btn">
+        <a href="#settings">ustawienia</a>
+      </div>
+    </nav>
+  </header>
 
-  </main>
+  <main id="drawer">
+    <section id="yarns" class="yarns">
+      <div class="form form--yarn">
+        <button class="btn btn--form-yarn" type="button">+</button>
+        <form class="form__add-yarn hide">
+          <label>Marka włóczki:
+            <input type="text">
+          </label>
+          <label>Nazwa włóczki:
+            <input type="text">
+          </label>
+          <button class="btn btn--save-yarn" type="submit">Dodaj nową włóczkę do szuflady</button>
+        </form>
+      </div>
+      <div id="yarns-list" class="yarns__list container"></div>
+    </section>
+    <section id="projects">
+      <div id="projects-list" class="projects__list container"></div>
+    </section>
+    <section id="tools">
+      <div class="tools container"></div>
+    </section>
+    <section id="settings">
+      <div class="settings container"></div>
+    </section>
+  </main>  
+
+  <script id="yarn-box" type="text/x-handlebars-template">
+    <!-- yarn box -->
+    <div class="yarn-box">
+      <ul class="yarn-box__list">
+        <li class="yarn-box__item">{{nbr}}</li>
+        <li class="yarn-box__item">{{brand}}</li>
+        <li class="yarn-box__item">{{name}}</li>
+      </ul>
+    </div>
+  </script>
+
+  <script id="project-box" type="text/x-handlebars-template">
+    <!-- yarn box -->
+    <div class="project-box">
+      <ul class="project-box__list">
+        <li class="project-box__item">{{lp}}</li>
+        <li class="project-box__item">{{name}}</li>
+        <li class="project-box__item">{{author}}</li>
+        <li class="project-box__item">{{start}}</li>
+        <li class="project-box__item">{{finish}}</li>
+
+      </ul>
+    </div>
+  </script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
-  <script src="js/script.js"></script>
+  <script src="js/app.js" type="module"></script>
 </body>
 </html>
